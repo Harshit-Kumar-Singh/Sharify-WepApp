@@ -15,16 +15,25 @@ drop.addEventListener('dragover',(event)=>{
     console.log("Dropped");
 
 })
+const uploading = ()=>{
+   document.getElementById('upperloader').style.visibility = 'visible';
+}
+const uploadingF = ()=>{
+    document.getElementById('upperloader').style.visibility = 'hidden';
+ }
+ 
 
 const upload = async ()=>{
     const file = fileDrop.files[0];
     const formData =  new FormData();
     formData.append('myFile',file);
+    uploading();
     const response = await fetch(url,{
         method:'POST',
         body:formData
     })
     const res =  await response.json();
+    uploadingF();
     copyUrl.value = res.file;
 }
 
