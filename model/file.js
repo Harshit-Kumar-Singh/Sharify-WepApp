@@ -15,4 +15,3 @@ const fileSchema =  new Schema (
     }
 )
 module.exports = mongoose.model('File',fileSchema);
-// MONGO_CONNECTION_URL ="mongodb+srv://sharify:IcYAfuWuZfuIXzqC@cluster0.isalp.mongodb.net/sharify?retryWrites=true&w=majority"

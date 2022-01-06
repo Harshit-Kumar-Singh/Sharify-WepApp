@@ -12,7 +12,7 @@ const { send } = require("process");
 console.log(myenv.parsed.APP_BASE_URL);
 
 
-const port = 5000;
+const port = process.env.PORT||5000;
 
 connectDB();
 
