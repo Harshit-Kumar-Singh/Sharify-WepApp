@@ -7,7 +7,7 @@ let copyUrl =  document.getElementById('fileUrl')
 let copyicon =  document.getElementById('copy-icon');
 const dotenv= require('dotenv');
 const myenv = dotenv.config();
-const url = myenv.process.env.APP_BASE_URL+'/api/files';
+const url = process.env.APP_BASE_URL+'/api/files';
 
 let formSelector =  document.getElementById('e-form');
 
@@ -71,7 +71,7 @@ formSelector.addEventListener('submit',(e)=>{
         emailFrom:formSelector.elements['sender'].value
     }
     console.log(formData);
-    fetch(`${myenv.process.env.APP_BASE_URL}/api/files/send`,{
+    fetch(`${process.env.APP_BASE_URL}/api/files/send`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
