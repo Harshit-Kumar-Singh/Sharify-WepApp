@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Estonia&family=Hurricane&family=M+PLUS+1:wght@100&family=Montserrat+Alternates:wght@100&family=Mulish:wght@600&family=Roboto+Condensed&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <title>Sharify</title>
+</head>
+<body>
+    <h2 class="title">Sharify</h2>
+    <div class="container">
+        <section id = "drop" class="drop-box">
+            <div id = "myDrop" class="inner-box">
+                <div class="icon-container">
+                    <img class = "icon left" src="upload.png" alt="file" draggable="false">
+                    <img class = "icon center" src="upload.png" alt="file" draggable="false">
+                    <img class = "icon right" src="upload.png" alt="file" draggable="false">
+                </div>
+     
+                <input type="file" name="file" id="file">
+                <div class="text">Drop Your Files Here <span id="browseBtn" class="browseButton">Browse</button></span></div>
+            </div>
+            <div class="url-container">
+                <p class="message">Link expires in 24 hrs</p>
+                <div class="copy-url">
+                    <input type="text" id="fileUrl" readonly value="http://www.google.com">
+                    <img class="copy" id = "copy-icon" src="/static/copy.png" alt="copy_icon">
+                </div>
+            </div>
+            <div class="emailContainer">
+                <form class="emailForm" id="e-form">
+                    <div class="sender">
+                        <label class="e-f" for="emailFrom">email From</label>
+                        <input id="emailFrom" type="email" name="sender" required>
+                    </div>
+                    <div class="receiver">
+                        <label class="e-f" for="emailTo">email To</label>
+                        <input id="emailTo" type="email" name="receiver" required>
+                    </div>
+                    <button class = "submit-btn" type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+        <section class="png-container">
+            <img class = "logo" src="image.svg" alt="image">
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

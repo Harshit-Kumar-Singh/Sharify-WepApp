@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Estonia&family=Hurricane&family=M+PLUS+1:wght@100&family=Montserrat+Alternates:wght@100&family=Mulish:wght@600&family=Roboto+Condensed&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <style>
+        body{
+            height: 100vh;
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .title{
+ 
+ /* font-family: 'Montserrat Alternates', sans-serif; */
+ font-family: 'M PLUS 1', sans-serif;
+ color: rgb(134, 134, 214);;
+ font-size: 50px;
+}
+        .download{
+            margin-top: 80px;
+            /* border: solid 2px black; */
+            width: 30%;
+            text-align: center;
+            /* display: flex;
+            flex-direction: column;
+            justify-content: center; */
+            box-shadow: 0px 10px 10px rgb(175, 175, 214);
+            border-radius: 30px;
+            
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            font-size: large;
+            font-family: monospace;
+        }
+        .send-btn-container{
+            margin-top: 10px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        .download-btn{
+            background-color: rgb(93, 36, 168);
+            padding: 8px 14px 8px 14px;
+            border-radius: 5px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title">Sharify</h1>
+    <section class="download">
+        <img class="download__icon" src="../static/download.png" alt="download">
+        <% if(locals.error){ %>
+        <h4><%= locals.error %> 😏</h4>
+        <% } else { %>
+        <h2>Your file is ready to download</h2>
+        <p>Link expires in 24 hours</p>
+        <div class="download__meta">
+            <h4><%= fileName %></h4>
+            <small><%= parseInt(fileSize/1000) %> KB</small>
+        </div>
+        <div class="send-btn-container">
+            <div class="download-btn">
+                <a href="<%= downloadLink %>">Download file</a>
+            </div>
+        </div>
+        <% } %>
+    </section>
+</body>
+</html>
