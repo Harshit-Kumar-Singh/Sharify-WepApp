@@ -41,11 +41,13 @@ let upload = multer({
 app.post("/api/files", async (req, res) => {
   upload(req, res, async(err) => {
     if (!req.file) {
+      
       res.send({ error: "Error Found" });
     }
     if (err) {
       res.send({ error: "error" });
     }
+    console.log(req.file);
     const file = new File({
         filename:req.file.filename,
         uuid:uuid4(),

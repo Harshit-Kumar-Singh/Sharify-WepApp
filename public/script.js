@@ -5,9 +5,7 @@ let fileDrop = document.getElementById('file');
 let browseBtn = document.getElementById('browseBtn');
 let copyUrl =  document.getElementById('fileUrl')
 let copyicon =  document.getElementById('copy-icon');
-
-const url = "http://localhost:5000/api/files";
-const host = `${url} + api/files`;
+const url = "http://sharify-web-app.herokuapp.com/api/files";
 
 let formSelector =  document.getElementById('e-form');
 
@@ -71,7 +69,7 @@ formSelector.addEventListener('submit',(e)=>{
         emailFrom:formSelector.elements['sender'].value
     }
     console.log(formData);
-    fetch("http://localhost:5000/api/files/send",{
+    fetch("http://sharify-web-app.herokuapp.com/api/files/send",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
