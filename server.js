@@ -9,7 +9,7 @@ const myenv = dotenv.config();
 const {v4:uuid4} =  require('uuid');
 const connectDB = require('./config/db.js');
 const { send } = require("process");
-console.log(myenv.parsed.APP_BASE_URL);
+
 
 
 const port = process.env.PORT||5000;
