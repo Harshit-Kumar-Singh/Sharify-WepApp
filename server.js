@@ -27,27 +27,28 @@ let storage = multer.diskStorage({
   filename: (req, file, cb) => {
     const uniqName = `${Date.now()}-${Math.round(
       Math.random() * 1e9
-    )}${path.extname(file.originalname)}`;
-    cb(null, uniqName);
-  },
-});
-
+      )}${path.extname(file.originalname)}`;
+      cb(null, uniqName);
+    },
+  });
+  
 let upload = multer({
   storage,
   limits: { fileSize: 1000000 * 100 },
 }).single("myFile");
 
 //front page
+app.get("/", (req, res) => {
+  res.redirect("/static/index.html");
+});
+
 app.post("/api/files", async (req, res) => {
   upload(req, res, async(err) => {
-    if (!req.file) {
-      
+    if (!req.file) 
       res.send({ error: "Error Found" });
-    }
-    if (err) {
+    if (err)
       res.send({ error: "error" });
-    }
-    console.log(req.file);
+    console.log('Yahan Par');
     const file = new File({
         filename:req.file.filename,
         uuid:uuid4(),
@@ -70,7 +71,6 @@ app.get('/files/:uuid',async (req,res)=>{
         else{
            
             const downloadL =  `${process.env.APP_BASE_URL}/files/download/${file.uuid}`;
-            console.log(downloadL);
             res.render('download',{
                 uuid:file.uuid,
                 fileName:file.filename,
@@ -131,9 +131,6 @@ app.post('/api/files/send',async (req,res)=>{
     return res.send({success:true});
   }
 })
-app.get("/", (req, res) => {
-  res.redirect("/static/index.html");
-});
 
 
 app.get("/Error", (req, res) => {
